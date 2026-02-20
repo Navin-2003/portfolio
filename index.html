@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+  <!-- SEO: filled by config.js at runtime, fallbacks here -->
+  <title>Navin Suresh | Cybersecurity Portfolio</title>
+  <meta name="description" content="Cybersecurity Analyst, SOC Specialist & Digital Forensics Investigator."/>
+  <meta name="author" content="Navin Suresh"/>
+  <meta name="keywords" content="Navin Suresh, Cybersecurity, SOC Analyst, Digital Forensics"/>
+  <meta name="robots" content="index, follow"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website"/>
+  <meta property="og:title"       content="Navin Suresh | Cybersecurity Portfolio"/>
+  <meta property="og:description" content="Cybersecurity Analyst, SOC Specialist & Digital Forensics Investigator."/>
+  <meta property="og:url"         content="https://navinsuresh.dev"/>
+  <meta property="og:image"       content="./assets/img/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height"content="630"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image"/>
+  <meta name="twitter:title"       content="Navin Suresh | Cybersecurity Portfolio"/>
+  <meta name="twitter:description" content="Cybersecurity Analyst, SOC Specialist & Digital Forensics Investigator."/>
+  <meta name="twitter:image"       content="./assets/img/og-image.png"/>
+
+  <!-- Favicon (place files in assets/img/) -->
+  <link rel="icon"             href="./assets/img/favicon.ico" type="image/x-icon"/>
+  <link rel="icon"             href="./assets/img/favicon-32x32.png" sizes="32x32" type="image/png"/>
+  <link rel="icon"             href="./assets/img/favicon-16x16.png" sizes="16x16" type="image/png"/>
+  <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png"/>
+  <link rel="manifest"         href="./assets/site.webmanifest"/>
+
+  <!-- Fonts: Google with local fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=VT323&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="./assets/css/style.css"/>
+</head>
+<body>
+
+  <!-- Custom cursor (hidden on touch devices via CSS) -->
+  <div id="cursor" aria-hidden="true"></div>
+  <div id="cursor-dot" aria-hidden="true"></div>
+
+  <!-- HUD corners -->
+  <div class="corner corner-tl" aria-hidden="true"></div>
+  <div class="corner corner-tr" aria-hidden="true"></div>
+  <div class="corner corner-bl" aria-hidden="true"></div>
+  <div class="corner corner-br" aria-hidden="true"></div>
+
+  <!-- Background canvases -->
+  <canvas id="grid-canvas"     aria-hidden="true"></canvas>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Section scroll dots -->
+  <nav class="scroll-nav" aria-label="Section navigation">
+    <button class="scroll-dot active" data-section="home"           title="Home"           aria-label="Go to Home"></button>
+    <button class="scroll-dot"        data-section="services"       title="Services"       aria-label="Go to Services"></button>
+    <button class="scroll-dot"        data-section="portfolio"      title="Projects"       aria-label="Go to Projects"></button>
+    <button class="scroll-dot"        data-section="qualifications" title="Qualifications" aria-label="Go to Qualifications"></button>
+    <button class="scroll-dot"        data-section="skills"         title="Skills"         aria-label="Go to Skills"></button>
+    <button class="scroll-dot"        data-section="contact"        title="Contact"        aria-label="Go to Contact"></button>
+  </nav>
+
+  <!-- ── NAV ──────────────────────────────────────────────── -->
+  <header class="l-header" id="header">
+    <nav class="nav bd-container" aria-label="Main navigation">
+      <a href="#home" class="nav-logo" id="nav-logo">NS<span>_</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Projects</a></li>
+        <li><a href="#qualifications">Quals</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="term-toggle" onclick="toggleTerminal()" aria-label="Open interactive terminal" title="Open Terminal [Ctrl+`]">
+        <span aria-hidden="true">⌨</span> TERMINAL
+      </button>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ── HOME ─────────────────────────────────────────────── -->
+  <main>
+  <section id="home" class="section-home" aria-label="Introduction">
+    <div class="home-inner bd-container">
+      <div class="boot-text" aria-hidden="true">
+        <span class="line">SYSTEM BOOT... [OK]</span>
+        <span class="line">LOADING USER PROFILE :: NAVIN_SURESH</span>
+        <span class="line">SECURITY CLEARANCE :: GRANTED ████████████ 100%</span>
+        <span class="line">ACCESS AUTHORIZED &gt;&gt; WELCOME TO THE GRID</span>
+      </div>
+      <h1 class="hero-name" id="hero-name">NAVIN<br>SURESH</h1>
+      <p class="hero-sub" id="hero-sub"></p>
+      <p class="hero-desc" id="hero-desc"></p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-primary"><span>⚡ HIRE ME</span></a>
+        <a href="#" class="btn btn-secondary" id="cv-btn" download>↓ DOWNLOAD CV</a>
+      </div>
+      <div class="social-row" id="social-row"></div>
+      <div class="terminal-preview" aria-label="Terminal preview">
+        <div class="terminal-bar">
+          <div class="t-dots"><span class="t-dot t-red"></span><span class="t-dot t-yellow"></span><span class="t-dot t-green"></span></div>
+          <span class="t-title-bar">TERMINAL :: NAVIN@GRID:~</span>
+        </div>
+        <div class="terminal-body-preview" id="hero-terminal"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ──────────────────────────────────────────── -->
+  <section id="services" aria-labelledby="services-title">
+    <div class="sec-header">
+      <div class="sec-label">// CAPABILITIES</div>
+      <h2 class="sec-title" id="services-title">SERVICES</h2>
+      <div class="sec-line"></div>
+      <p class="sec-sub">Cybersecurity solutions I provide to protect systems and data</p>
+    </div>
+    <div class="services-grid bd-container" id="services-grid"></div>
+  </section>
+
+  <!-- ── PROJECTS ──────────────────────────────────────────── -->
+  <section id="portfolio" aria-labelledby="portfolio-title">
+    <div class="sec-header">
+      <div class="sec-label">// OPERATIONS</div>
+      <h2 class="sec-title" id="portfolio-title">PROJECTS</h2>
+      <div class="sec-line"></div>
+      <p class="sec-sub">Cybersecurity and AI-based research projects</p>
+    </div>
+    <div class="projects-grid bd-container" id="projects-grid"></div>
+  </section>
+
+  <!-- ── QUALIFICATIONS ────────────────────────────────────── -->
+  <section id="qualifications" aria-labelledby="quals-title">
+    <div class="sec-header">
+      <div class="sec-label">// CREDENTIALS</div>
+      <h2 class="sec-title" id="quals-title">QUALIFICATIONS</h2>
+      <div class="sec-line"></div>
+      <p class="sec-sub">Education and certifications</p>
+    </div>
+    <div class="quals-inner bd-container">
+      <div class="quals-cols">
+        <div>
+          <h3 class="quals-group-title">// EDUCATION</h3>
+          <div id="edu-timeline"></div>
+        </div>
+        <div>
+          <h3 class="quals-group-title">// CERTIFICATIONS</h3>
+          <div id="cert-list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ────────────────────────────────────────────── -->
+  <section id="skills" aria-labelledby="skills-title">
+    <div class="sec-header">
+      <div class="sec-label">// ARSENAL</div>
+      <h2 class="sec-title" id="skills-title">SKILLS</h2>
+      <div class="sec-line"></div>
+      <p class="sec-sub">Technical expertise and tools</p>
+    </div>
+    <div class="skills-inner bd-container">
+      <div class="skill-bars-col">
+        <h4 class="skill-group-label">// PROFICIENCY</h4>
+        <div id="skill-bars"></div>
+      </div>
+      <div class="skill-tools-col">
+        <h4 class="skill-group-label">// TOOLS & TECH</h4>
+        <div id="tool-chips"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ───────────────────────────────────────────── -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="sec-header">
+      <div class="sec-label">// INITIATE CONNECTION</div>
+      <h2 class="sec-title" id="contact-title">CONTACT</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="contact-inner bd-container">
+      <div class="contact-layout">
+        <!-- Info panel -->
+        <div class="contact-info">
+          <p class="contact-tagline" id="contact-tagline"></p>
+          <div class="contact-details" id="contact-details"></div>
+          <div class="contact-social" id="contact-social"></div>
+        </div>
+        <!-- Form panel -->
+        <div class="contact-form-wrap">
+          <form id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="cf-name">// NAME</label>
+              <input type="text"  id="cf-name"  name="name"    placeholder="Your name"    required autocomplete="name"/>
+            </div>
+            <div class="form-group">
+              <label for="cf-email">// EMAIL</label>
+              <input type="email" id="cf-email" name="email"   placeholder="your@email.com" required autocomplete="email"/>
+            </div>
+            <div class="form-group">
+              <label for="cf-subject">// SUBJECT</label>
+              <input type="text"  id="cf-subject" name="subject" placeholder="Subject"/>
+            </div>
+            <div class="form-group">
+              <label for="cf-msg">// MESSAGE</label>
+              <textarea id="cf-msg" name="message" rows="5" placeholder="Your message..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn" id="submit-btn">
+              <span id="submit-text">⚡ SEND MESSAGE</span>
+              <span id="submit-loader" class="hidden">TRANSMITTING...</span>
+            </button>
+            <div id="form-status" class="form-status hidden"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- ── INTERACTIVE TERMINAL OVERLAY ──────────────────────── -->
+  <div id="iterm-overlay" class="iterm-overlay hidden" role="dialog" aria-modal="true" aria-label="Interactive terminal">
+    <div id="iterm-window" class="iterm-window">
+      <div class="iterm-titlebar" id="iterm-titlebar">
+        <div class="iterm-dots">
+          <button class="iterm-dot idot-red"    onclick="closeTerminal()"    aria-label="Close terminal"   title="Close"></button>
+          <button class="iterm-dot idot-yellow" onclick="minimizeTerminal()" aria-label="Minimize terminal" title="Minimize"></button>
+          <button class="iterm-dot idot-green"  onclick="maximizeTerminal()" aria-label="Maximize terminal" title="Maximize"></button>
+        </div>
+        <div class="iterm-title">NAVIN@GRID:~$ — SECURE SHELL v2.4.1</div>
+        <div class="iterm-hint">[Ctrl+`] toggle &nbsp;·&nbsp; [Ctrl+L] clear &nbsp;·&nbsp; [↑↓] history &nbsp;·&nbsp; [Tab] complete</div>
+      </div>
+      <div id="iterm-body" class="iterm-body">
+        <div id="iterm-output" class="iterm-output" role="log" aria-live="polite" aria-label="Terminal output"></div>
+        <div class="iterm-input-row">
+          <span class="iterm-prompt" aria-hidden="true">navin@grid<span class="ip-sep">:</span><span class="ip-path">~</span><span class="ip-dollar">&nbsp;$&nbsp;</span></span>
+          <input id="iterm-input" class="iterm-input" type="text"
+                 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                 placeholder="type a command… (try 'help')"
+                 aria-label="Terminal input"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-inner bd-container">
+      <span class="footer-logo" id="footer-logo">NS_</span>
+      <span class="footer-copy" id="footer-copy">© 2025 NAVIN SURESH :: ALL SYSTEMS OPERATIONAL</span>
+    </div>
+  </footer>
+
+  <!-- Scripts: config first, then app -->
+  <script src="./config.js"></script>
+  <script src="./assets/js/app.js"></script>
+</body>
+</html>
